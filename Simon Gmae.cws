@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 2000
-Pathname = "/x/Simon Game v1.0/Simon Gmae.cws"
+Pathname = "/d/Simon-Gmae-in-C--main/Simon Gmae.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2020"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2020"
@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "Simon Gmae.prj"
-Drag Bar Left = 250
+Drag Bar Left = 160
 Window Top = 71
 Window Left = 258
 Window Bottom = 534
-Window Right = 1032
+Window Right = 1048
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -32,7 +32,7 @@ Break At First Statement = False
 Sort Type = "File Name"
 Number of Opened Files = 2
 Window Confinement Region Enabled = True
-MainColumnWidth = 233
+MainColumnWidth = 143
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -46,19 +46,19 @@ Batch Build Release = False
 Batch Build Debug = False
 
 [File 0001]
-Path = "/x/Simon Game v1.0/Simon Game v1.0.c"
+Path = "/d/Simon-Gmae-in-C--main/Simon Game v1.0.c"
 File Type = "CSource"
-Disk Date = 3738371115
+Disk Date = 3738399745
 In Projects = "1,"
-Source Window State = "1,123,123,123,19,19,19,0,0,0,0,0,0,0,0,0,105,0,123,19,251,462,1,0,"
+Source Window State = "1,374,374,374,16,25,16,0,3,0,0,0,0,0,0,0,386,0,374,25,251,462,1,0,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
 
 [File 0002]
-Path = "/x/Simon Game v1.0/Simon Gmae.uir"
+Path = "/d/Simon-Gmae-in-C--main/Simon Gmae.uir"
 File Type = "User Interface Resource"
-Disk Date = 3738371040
+Disk Date = 3738399593
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
@@ -67,51 +67,51 @@ Window Width = 735
 Window Z-Order = 2
 
 [File 0003]
-Path = "/x/Simon Game v1.0/Audio/blue.mp3"
+Path = "/d/Simon-Gmae-in-C--main/Audio/blue.mp3"
 File Type = "Unknown"
-Disk Date = 3738322778
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0004]
-Path = "/x/Simon Game v1.0/Audio/green.mp3"
+Path = "/d/Simon-Gmae-in-C--main/Audio/green.mp3"
 File Type = "Unknown"
-Disk Date = 3738322784
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0005]
-Path = "/x/Simon Game v1.0/Audio/red.mp3"
+Path = "/d/Simon-Gmae-in-C--main/Audio/red.mp3"
 File Type = "Unknown"
-Disk Date = 3738322794
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0006]
-Path = "/x/Simon Game v1.0/Audio/wrong.mp3"
+Path = "/d/Simon-Gmae-in-C--main/Audio/wrong.mp3"
 File Type = "Unknown"
-Disk Date = 3738322802
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0007]
-Path = "/x/Simon Game v1.0/Audio/yellow.mp3"
+Path = "/d/Simon-Gmae-in-C--main/Audio/yellow.mp3"
 File Type = "Unknown"
-Disk Date = 3738322812
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0008]
-Path = "/x/Simon Game v1.0/bass.lib"
+Path = "/d/Simon-Gmae-in-C--main/bass.lib"
 File Type = "Library"
-Disk Date = 3503883026
+Disk Date = 3738375335
 In Projects = "1,"
 
 [File 0009]
-Path = "/x/Simon Game v1.0/bass.h"
+Path = "/d/Simon-Gmae-in-C--main/bass.h"
 File Type = "Include"
-Disk Date = 3503883026
+Disk Date = 3738375335
 In Projects = "1,"
 Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
 
 [Tab Order]
-Tab 0001 = "/x/Simon Game v1.0/Simon Gmae.uir"
-Tab 0002 = "/x/Simon Game v1.0/Simon Game v1.0.c"
+Tab 0001 = "/d/Simon-Gmae-in-C--main/Simon Gmae.uir"
+Tab 0002 = "/d/Simon-Gmae-in-C--main/Simon Game v1.0.c"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

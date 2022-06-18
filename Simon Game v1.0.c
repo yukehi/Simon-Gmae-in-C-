@@ -220,7 +220,7 @@ int roundSeqPlay(void)
 				  if(numSeqRandom[i]==0)
 				  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
-					  BASS_ChannelPlay(BTN_RED_SND,TRUE);
+					 // BASS_ChannelPlay(BTN_RED_SND,TRUE);
 					 // SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_RED);
 					 
 					  if (timeOut(1)==1)
@@ -236,7 +236,7 @@ int roundSeqPlay(void)
 				   if(numSeqRandom[i]==1)
 				  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
-					  BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
+					 // BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
 					//  SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
 					  if (timeOut(1)==1)
 					  {
@@ -251,7 +251,7 @@ int roundSeqPlay(void)
 				   if(numSeqRandom[i]==2)
 				  {					
 					   SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
-					   BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
+					   //BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
 					//   SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_GREEN);
 					  if (timeOut(1)==1)
 					  {
@@ -267,7 +267,7 @@ int roundSeqPlay(void)
 				  {
 					 
 					 SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
-					 BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
+					 //BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
 					// SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_BLUE);
 					  if (timeOut(1)==1)
 					  {
@@ -381,6 +381,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
 			SetCtrlAttribute (gamePanel, PANEL_GAME_GAME_MODE, ATTR_DIMMED, 1);
 			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
+			SetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, gameMode);
 			setBtnToLight();
 			roundSeqPlay();
 	
@@ -410,7 +411,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							gameCount++;
 							userInput=0;
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
-							BASS_ChannelPlay(BTN_RED_SND,TRUE);
+							//BASS_ChannelPlay(BTN_RED_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
 							if (timeOut(1)==1)
 							{
@@ -425,7 +426,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							gameCount++;
 							userInput=1;
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
-							BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
+							//BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
 							if (timeOut(1)==1)
 							{
@@ -440,7 +441,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							gameCount++;
 							userInput=2;
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
-							BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
+							//BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
 							if (timeOut(1)==1)
 							{
@@ -456,7 +457,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							gameCount++;
 							userInput=3;
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
-							BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
+							//BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
 							if (timeOut(1)==1)
 							{
@@ -489,9 +490,8 @@ int CVICALLBACK nextLevel (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			levelCount++;
-			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
+			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);
 			seqCount=0;
-			userInput=0;
 			setBtnToLight();
 			roundSeqPlay();
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 1);

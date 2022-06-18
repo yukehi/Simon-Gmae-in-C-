@@ -1,100 +1,100 @@
 [InitMP3s]
 Class="Function"
 Prototype="void InitMP3s();"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:37:6"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:37:6"
 
 [ReleaseMP3s]
 Class="Function"
 Prototype="void ReleaseMP3s();"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:48:6"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:48:6"
 
 [timeOut]
 Class="Function"
 Prototype="int timeOut(int seconds);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:80:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:80:5"
 
 [setBtnToPlay]
 Class="Function"
 Prototype="int setBtnToPlay();"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:89:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:89:5"
 
 [setBtnToLight]
 Class="Function"
 Prototype="int setBtnToLight();"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:99:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:99:5"
 
 [checkSeq]
 Class="Function"
 Prototype="int checkSeq(int userSeq[], int comSeq[], int Size);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:110:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:110:5"
 
 [gameLenth]
 Class="Function"
 Prototype="int gameLenth(int level, int mode);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:130:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:131:5"
 
 [QUIT_GAME]
 Class="Function"
 Prototype="int QUIT_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:140:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:141:17"
 
 [GO_BACK_MAIN]
 Class="Function"
 Prototype="int GO_BACK_MAIN(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:152:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:153:17"
 
 [GO_TO_ABOUT]
 Class="Function"
 Prototype="int GO_TO_ABOUT(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:174:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:175:17"
 
 [GO_TO_GAME]
 Class="Function"
 Prototype="int GO_TO_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:187:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:188:17"
 
 [seqNumberGanretoer]
 Class="Function"
 Prototype="int seqNumberGanretoer(int gameLantch);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:200:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:201:5"
 
 [roundSeqPlay]
 Class="Function"
 Prototype="int roundSeqPlay();"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:214:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:215:5"
 
 [main]
 Class="Function"
 Prototype="int main(int argc, char *argv[]);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:302:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:301:5"
 
 [panelCB]
 Class="Function"
 Prototype="int panelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:333:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:332:17"
 
 [SetGameMode]
 Class="Function"
 Prototype="int SetGameMode(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:342:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:341:17"
 
 [FIRE_GAME]
 Class="Function"
 Prototype="int FIRE_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:376:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:375:17"
 
 [BTN_CHANGE]
 Class="Function"
 Prototype="int BTN_CHANGE(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:400:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:401:17"
 
 [nextLevel]
 Class="Function"
 Prototype="int nextLevel(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:484:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:486:17"
 
 [TryAgian]
 Class="Function"
 Prototype="int TryAgian(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="x:\Simon Game v1.0\Simon Game v1.0.c:502:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:504:17"
 

@@ -2,7 +2,7 @@
 #include "C:\Program Files (x86)\National Instruments\Shared\MSDTRedistributables\SDKHeaderFiles\8.1\winver.h"
 
 2 ICON "c:\\program files (x86)\\national instruments\\cvi2020\\bin\\default.ico"
-1 24 "x:\\Simon Game v1.0\\cvibuild.Simon Gmae\\Debug\\manifest.xml"
+1 24 "d:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\manifest.xml"
 
 
 STRINGTABLE DISCARDABLE
