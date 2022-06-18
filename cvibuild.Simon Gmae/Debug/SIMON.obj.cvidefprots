@@ -1,0 +1,65 @@
+[numberGanretoer]
+Class="Function"
+Prototype="int numberGanretoer();"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:18:5"
+
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:33:5"
+
+[timeout]
+Class="Function"
+Prototype="int timeout(int seconds);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:54:5"
+
+[showbtn]
+Class="Function"
+Prototype="int showbtn();"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:62:5"
+
+[simonsq]
+Class="Function"
+Prototype="int simonsq();"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:73:6"
+
+[QUIT_GAME]
+Class="Function"
+Prototype="int QUIT_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:142:17"
+
+[OPEN_GAME]
+Class="Function"
+Prototype="int OPEN_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:156:17"
+
+[GOTOABOUT]
+Class="Function"
+Prototype="int GOTOABOUT(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:169:17"
+
+[BACKTOMANU]
+Class="Function"
+Prototype="int BACKTOMANU(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:182:17"
+
+[GAMEON]
+Class="Function"
+Prototype="int GAMEON(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:197:17"
+
+[cheekWin]
+Class="Function"
+Prototype="int cheekWin();"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:213:5"
+
+[btnFire]
+Class="Function"
+Prototype="int btnFire(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:226:17"
+
+[GAMEMODE]
+Class="Function"
+Prototype="int GAMEMODE(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\Cib\Simon Game\SIMON.c:311:17"
+

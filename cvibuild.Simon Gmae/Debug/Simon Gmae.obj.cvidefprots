@@ -1,0 +1,100 @@
+[InitMP3s]
+Class="Function"
+Prototype="void InitMP3s();"
+SourceLocation="x:\c\Simon Gmae.c:37:6"
+
+[ReleaseMP3s]
+Class="Function"
+Prototype="void ReleaseMP3s();"
+SourceLocation="x:\c\Simon Gmae.c:48:6"
+
+[timeOut]
+Class="Function"
+Prototype="int timeOut(int seconds);"
+SourceLocation="x:\c\Simon Gmae.c:80:5"
+
+[setBtnToPlay]
+Class="Function"
+Prototype="int setBtnToPlay();"
+SourceLocation="x:\c\Simon Gmae.c:89:5"
+
+[setBtnToLight]
+Class="Function"
+Prototype="int setBtnToLight();"
+SourceLocation="x:\c\Simon Gmae.c:99:5"
+
+[checkSeq]
+Class="Function"
+Prototype="int checkSeq(int userSeq[], int comSeq[], int Size);"
+SourceLocation="x:\c\Simon Gmae.c:109:5"
+
+[gameLenth]
+Class="Function"
+Prototype="int gameLenth(int level, int mode);"
+SourceLocation="x:\c\Simon Gmae.c:124:5"
+
+[QUIT_GAME]
+Class="Function"
+Prototype="int QUIT_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:134:17"
+
+[GO_BACK_MAIN]
+Class="Function"
+Prototype="int GO_BACK_MAIN(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:146:17"
+
+[GO_TO_ABOUT]
+Class="Function"
+Prototype="int GO_TO_ABOUT(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:168:17"
+
+[GO_TO_GAME]
+Class="Function"
+Prototype="int GO_TO_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:181:17"
+
+[seqNumberGanretoer]
+Class="Function"
+Prototype="int seqNumberGanretoer(int gameLantch);"
+SourceLocation="x:\c\Simon Gmae.c:194:5"
+
+[roundSeqPlay]
+Class="Function"
+Prototype="int roundSeqPlay();"
+SourceLocation="x:\c\Simon Gmae.c:208:5"
+
+[SetGameMode]
+Class="Function"
+Prototype="int SetGameMode(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:288:17"
+
+[FIRE_GAME]
+Class="Function"
+Prototype="int FIRE_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:322:17"
+
+[BTN_CHANGE]
+Class="Function"
+Prototype="int BTN_CHANGE(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:345:17"
+
+[nextLevel]
+Class="Function"
+Prototype="int nextLevel(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:429:17"
+
+[TryAgian]
+Class="Function"
+Prototype="int TryAgian(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:447:17"
+
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="x:\c\Simon Gmae.c:475:5"
+
+[panelCB]
+Class="Function"
+Prototype="int panelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="x:\c\Simon Gmae.c:505:17"
+

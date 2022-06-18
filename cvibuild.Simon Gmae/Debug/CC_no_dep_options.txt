@@ -1,0 +1,1 @@
+-force-include-file "bass.h";"x:\c\bass.h" -force-include-file "Simon Gmae.c";"x:\c\Simon Gmae.c" 
