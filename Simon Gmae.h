@@ -32,6 +32,8 @@
 #define  PANEL_GAME_BTN_BLUE              13      /* control type: toggle, callback function: BTN_CHANGE */
 #define  PANEL_GAME_BTN_YELLOW            14      /* control type: toggle, callback function: BTN_CHANGE */
 #define  PANEL_GAME_BTN_RED               15      /* control type: toggle, callback function: BTN_CHANGE */
+#define  PANEL_GAME_levelHeadLine         16      /* control type: textMsg, callback function: (none) */
+#define  PANEL_GAME_levelCountr           17      /* control type: textMsg, callback function: (none) */
 
 #define  PANEL_MAIN                       3       /* callback function: panelCB */
 #define  PANEL_MAIN_BTN_QUIT              2       /* control type: command, callback function: QUIT_GAME */

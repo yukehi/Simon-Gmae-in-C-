@@ -1,4 +1,4 @@
-Simon Gmae.obj
+Simon Game v1.0.obj
 cvi.lib
 cvistart.lib
 bass.lib

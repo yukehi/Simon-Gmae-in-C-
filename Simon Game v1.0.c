@@ -110,22 +110,25 @@ int setBtnToLight(void)
 int checkSeq (int userSeq[], int comSeq[], int Size) {
     int g;
 	for(g=0;g<Size;g++){
-		if(userSeq[g]!= comSeq[g]){
-			/// ACTIVETING THE NEXT LEVEL BTN
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 0);
-			printf("YOU DID RIGHT MY SON \n %d",userInput);
+		printf("\n user sequnse = %d",userSeq[g]);
+		printf("\n com sequnse  = %d",comSeq[g]);
+		if(userSeq[g] != comSeq[g]){
+			/// ACTIVETING THE AGIEN BTN
+			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_AGIAN, ATTR_DIMMED, 0);
+			printf("\n SHIT HAPPEN!!!!!! userinput = %d",userInput);
 			return 0 ;
+			}
+	/// ACTIVETING THE NEXT LEVEL BTN
+		SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 0);
+		printf("\n YOU DID RIGHT MY SON  %d",userInput);		
+	
+		return 1;
 	}
-	/// ACTIVETING THE AGIEN BTN
-	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_AGIAN, ATTR_DIMMED, 0);
-	printf("SHIT HAPPEN!!!!!! \n %d",userInput);
-	return 1;
-}
-return 0;
+	return 0;
 }
 
 int gameLenth (int level, int mode) {
-	N = level* mode;
+	N = level*mode;
 	return 0;
 }
 
@@ -215,7 +218,6 @@ int roundSeqPlay(void)
 			  {
 				  if(numSeqRandom[i]==0)
 				  {
-					  
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
 					  BASS_ChannelPlay(BTN_RED_SND,TRUE);
 					 // SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_RED);
@@ -232,7 +234,6 @@ int roundSeqPlay(void)
 				  }
 				   if(numSeqRandom[i]==1)
 				  {
-					   
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
 					  BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
 					//  SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
@@ -247,7 +248,7 @@ int roundSeqPlay(void)
 					  
 				  }
 				   if(numSeqRandom[i]==2)
-				  {					///	 FSOUND_PlaySound (0,green);
+				  {					
 					   SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
 					   BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
 					//   SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_GREEN);
@@ -263,7 +264,7 @@ int roundSeqPlay(void)
 				  }
 				   if(numSeqRandom[i]==3)
 				  {
-					 /// FSOUND_PlaySound (0,blue);
+					 
 					 SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
 					 BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
 					// SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_BLUE);
@@ -378,6 +379,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 		case EVENT_COMMIT:
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
 			SetCtrlAttribute (gamePanel, PANEL_GAME_GAME_MODE, ATTR_DIMMED, 1);
+			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
 			setBtnToLight();
 			roundSeqPlay();
 	
@@ -465,9 +467,10 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 						
 				}
 				userSeqInput[gameCount]=userInput;
-				if(gameCount == (levelCount * gameMode))
+				if(seqCount == (levelCount * gameMode))
 				{
-					printf("WE START THE CHECK \n %d",userInput);
+					printf("\n WE START THE CHECK  %d",userInput);
+					printf("\n \n ans of N  %d",N);
 					checkSeq(userSeqInput,numSeqRandom,N);
 				
 				}
@@ -485,6 +488,7 @@ int CVICALLBACK nextLevel (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			levelCount++;
+			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
 			seqCount=0;
 			userInput=0;
 			setBtnToLight();

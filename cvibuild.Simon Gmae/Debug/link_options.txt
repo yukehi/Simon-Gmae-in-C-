@@ -1,25 +1,25 @@
 -nologo
--out:x:\c\cvibuild.Simon Gmae\Debug\Simon Gmae.exe
+-out:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\Simon Gmae.exe
 -arch:x86
 -timestamp
 -debug:2
 -loadextmod
--project:x:\c\Simon Gmae.prj
--res:x:\c\cvibuild.Simon Gmae\Debug\resources.res
+-project:x:\Simon Game v1.0\Simon Gmae.prj
+-res:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\resources.res
 -entry:_CVIWinMainStartupCodeForDebugging@0
 -base:0x400000
--linked:x:\c\cvibuild.Simon Gmae\Debug\linkersummary.txt
--dlldeps:x:\c\cvibuild.Simon Gmae\Debug\dlldependencies.txt
--licensing:x:\c\cvibuild.Simon Gmae\Debug\linkerlicensing.txt
--browsedeps:x:\c\cvibuild.Simon Gmae\Debug\moduledependencies.txt
+-linked:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\linkersummary.txt
+-dlldeps:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\dlldependencies.txt
+-licensing:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\linkerlicensing.txt
+-browsedeps:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\moduledependencies.txt
 -stackreserve:1048576
 -stackcommit:4096
--in:x:\c\cvibuild.Simon Gmae\Debug\Simon Gmae.obj
+-in:x:\Simon Game v1.0\cvibuild.Simon Gmae\Debug\Simon Game v1.0.obj
 -more:c:\program files (x86)\national instruments\cvi2020\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2020\bin\msvc\cvi.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2020\bin\msvc\advanlys.lib
 -more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\advapi32.lib
--more:x:\c\bass.lib
+-more:x:\Simon Game v1.0\bass.lib
 -more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\bufferoverflowu.lib
 -more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\cvi_db.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2020\bin\msvc\cviauto.lib
