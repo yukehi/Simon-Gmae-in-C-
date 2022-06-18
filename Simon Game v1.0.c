@@ -119,10 +119,11 @@ int checkSeq (int userSeq[], int comSeq[], int Size) {
 			return 0 ;
 			}
 	/// ACTIVETING THE NEXT LEVEL BTN
+		else{
 		SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 0);
 		printf("\n YOU DID RIGHT MY SON  %d",userInput);		
-	
 		return 1;
+		}
 	}
 	return 0;
 }
