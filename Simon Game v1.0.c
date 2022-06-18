@@ -58,11 +58,13 @@ void ReleaseMP3s(void)
 //==============================================================================
 // global variables
 int levelCount=1,gameMode=1; 
-int numSeqRandom[100],userSeqInput[100]; ///shoud be dynimc arry CHECK HOW TO MAKE ONE 
+int numSeqRandom[100];///shoud be dynimc arry CHECK HOW TO MAKE ONE
+int* userSeqInput;
 int gameCount=-1;
 int seqCount=0;
-int userInput;
-int N;/// combintion of level and mode for ans of steps in game
+int userInput=0;
+int N,i; //mbintion of level and mode for ans of steps in game
+
 
 //==============================================================================
 // Static global variables
@@ -76,8 +78,18 @@ static int gameLantheDefulet = 100;
 
 //==============================================================================
 // Static functions
+int LoopThrowArry (int arry[]){
+	int loop;
+	for(loop = 0; loop <N; loop++)
+		{
+     	 printf("%d ", arry[loop]);
+	  			
+		}
+	return 0;
+}
 
-int timeOut( int seconds )
+
+int timeOut( double seconds )
 {
     clock_t endwait;
     endwait = clock () + seconds * CLOCKS_PER_SEC ;
@@ -108,22 +120,26 @@ int setBtnToLight(void)
 
 ///// CHECK LOGIC OF COMPERING ARRYS
 int checkSeq (int userSeq[], int comSeq[], int Size) {
-    int g;
-	for(g=0;g<Size;g++){
-		printf("\n user sequnse = %d",userSeq[g]);
-		printf("\n com sequnse  = %d",comSeq[g]);
-		if(userSeq[g] != comSeq[g]){
+    int i=0;
+	while(i<Size)
+	{
+	
+		printf("\n user sequnse = %d",userSeq[i]);
+		printf("\n com sequnse  = %d",comSeq[i]);
+		if(userSeq[i] != comSeq[i])
+		{
 			/// ACTIVETING THE AGIEN BTN
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_AGIAN, ATTR_DIMMED, 0);
 			printf("\n SHIT HAPPEN!!!!!! userinput = %d",userInput);
-			return 0 ;
+	//return 0 ;
 			}
 	/// ACTIVETING THE NEXT LEVEL BTN
 		else{
 		SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 0);
 		printf("\n YOU DID RIGHT MY SON  %d",userInput);		
-		return 1;
+//return 1;
 		}
+		i++;
 	}
 	return 0;
 }
@@ -131,8 +147,23 @@ int checkSeq (int userSeq[], int comSeq[], int Size) {
 int gameLenth (int level, int mode) {
 	N = level*mode;
 	return 0;
+
 }
 
+
+int seqNumberGanretoer (int gameLantch){
+	
+	int i;
+	srand(time(0));
+	
+	 for( i = 0 ; i < gameLantch ; i++ ) 
+	 {
+      		///printf("%d\n", numSeqRandom[i]);
+	  		numSeqRandom[i] =rand() % 4;
+	 }
+
+	return 0;
+}
 
 
 //==============================================================================
@@ -198,32 +229,22 @@ int CVICALLBACK GO_TO_GAME (int panel, int control, int event,
 	return 0;
 }
 
-int seqNumberGanretoer (int gameLantch){
-	
-	int i;
-	srand(time(0));
-	
-	 for( i = 0 ; i < gameLantch ; i++ ) 
-	 {
-      		///printf("%d\n", numSeqRandom[i]);
-	  		numSeqRandom[i] =rand() % 4;
-	 }
 
-	return 0;
-}
 
 int roundSeqPlay(void)
    {
-	   int i;
+	   userSeqInput=(int*)malloc(N* sizeof(int));
 	   		  for( i = 0 ; i < levelCount*gameMode ; i++ )
 			  {
 				  if(numSeqRandom[i]==0)
 				  {
+					   if (timeOut(0.5)==1)
+					  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
 					 // BASS_ChannelPlay(BTN_RED_SND,TRUE);
 					 // SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_RED);
-					 
-					  if (timeOut(1)==1)
+					  }
+					  if (timeOut(0.5)==1)
 					  {
 						 SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 0);
 						// SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -235,10 +256,13 @@ int roundSeqPlay(void)
 				  }
 				   if(numSeqRandom[i]==1)
 				  {
+					   if (timeOut(0.5)==1)
+					  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
 					 // BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
 					//  SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
-					  if (timeOut(1)==1)
+					  }
+					  if (timeOut(0.5)==1)
 					  {
 						SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 0); 
 					//	SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -249,11 +273,14 @@ int roundSeqPlay(void)
 					  
 				  }
 				   if(numSeqRandom[i]==2)
-				  {					
+				  {		
+					   if (timeOut(0.5)==1)
+					  {
 					   SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
 					   //BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
 					//   SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_GREEN);
-					  if (timeOut(1)==1)
+					  }
+					  if (timeOut(0.5)==1)
 					  {
 						SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 0);
 					//	SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -265,11 +292,13 @@ int roundSeqPlay(void)
 				  }
 				   if(numSeqRandom[i]==3)
 				  {
-					 
+					  if (timeOut(0.5)==1)
+					  {
 					 SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
 					 //BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
 					// SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_BLUE);
-					  if (timeOut(1)==1)
+					  }
+					  if (timeOut(0.5)==1)
 					  {
 						SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 0);
 						//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -347,16 +376,16 @@ int CVICALLBACK SetGameMode (int panel, int control, int event,
 		case EVENT_COMMIT:
 			   GetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, &val);
 			   ///printf("%d\n",gameMode);
-			   if(val==0)
+			   if(val==1)
 			   {  
 					gameMode=1; 
 					
 			   }
-			   if(val==1)
+			   if(val==2)
 			   {
 					gameMode=2;
 			   }
-			   if(val==2)
+			   if(val==3)
 			   {
 					gameMode=3;   
 			   }
@@ -381,7 +410,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
 			SetCtrlAttribute (gamePanel, PANEL_GAME_GAME_MODE, ATTR_DIMMED, 1);
 			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
-			SetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, gameMode);
+			SetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, 0);
 			setBtnToLight();
 			roundSeqPlay();
 	
@@ -410,10 +439,13 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							seqCount++;
 							gameCount++;
 							userInput=0;
+							if (timeOut(0.5)==1)
+							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
 							//BASS_ChannelPlay(BTN_RED_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
-							if (timeOut(1)==1)
+							}
+							if (timeOut(0.5)==1)
 							{
 								SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 0);
 								//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -425,10 +457,13 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							seqCount++;
 							gameCount++;
 							userInput=1;
+							if (timeOut(0.5)==1)
+							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
 							//BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
-							if (timeOut(1)==1)
+							}
+							if (timeOut(0.5)==1)
 							{
 								SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW,0);
 								//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -440,10 +475,13 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							seqCount++;
 							gameCount++;
 							userInput=2;
+							if (timeOut(0.5)==1)
+							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
 							//BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
-							if (timeOut(1)==1)
+							}
+							if (timeOut(0.5)==1)
 							{
 								SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 0);
 								//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -456,10 +494,13 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							seqCount++;
 							gameCount++;
 							userInput=3;
+							if (timeOut(0.5)==1)
+							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
 							//BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
 							//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_YELLOW);
-							if (timeOut(1)==1)
+							}
+							if (timeOut(0.5)==1)
 							{
 								SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 0);
 								//SetPanelAttribute (gamePanel, ATTR_BACKCOLOR, VAL_DK_GRAY);
@@ -468,7 +509,9 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 								
 						
 				}
+				
 				userSeqInput[gameCount]=userInput;
+				LoopThrowArry(userSeqInput);
 				if(seqCount == (levelCount * gameMode))
 				{
 					printf("\n WE START THE CHECK  %d",userInput);
