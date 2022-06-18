@@ -26,80 +26,80 @@ SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:101:5"
 [setBtnToLight]
 Class="Function"
 Prototype="int setBtnToLight();"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:111:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:112:5"
 
 [checkSeq]
 Class="Function"
 Prototype="int checkSeq(int userSeq[], int comSeq[], int Size);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:122:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:123:5"
 
 [gameLenth]
 Class="Function"
 Prototype="int gameLenth(int level, int mode);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:147:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:148:5"
 
 [seqNumberGanretoer]
 Class="Function"
 Prototype="int seqNumberGanretoer(int gameLantch);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:154:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:155:5"
 
 [QUIT_GAME]
 Class="Function"
 Prototype="int QUIT_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:172:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:173:17"
 
 [GO_BACK_MAIN]
 Class="Function"
 Prototype="int GO_BACK_MAIN(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:184:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:185:17"
 
 [GO_TO_ABOUT]
 Class="Function"
 Prototype="int GO_TO_ABOUT(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:206:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:207:17"
 
 [GO_TO_GAME]
 Class="Function"
 Prototype="int GO_TO_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:219:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:220:17"
 
 [roundSeqPlay]
 Class="Function"
 Prototype="int roundSeqPlay();"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:234:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:237:5"
 
 [main]
 Class="Function"
 Prototype="int main(int argc, char *argv[]);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:330:5"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:334:5"
 
 [panelCB]
 Class="Function"
 Prototype="int panelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:361:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:367:17"
 
 [SetGameMode]
 Class="Function"
 Prototype="int SetGameMode(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:370:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:376:17"
 
 [FIRE_GAME]
 Class="Function"
 Prototype="int FIRE_GAME(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:404:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:412:17"
 
 [BTN_CHANGE]
 Class="Function"
 Prototype="int BTN_CHANGE(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:430:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:440:17"
 
 [nextLevel]
 Class="Function"
 Prototype="int nextLevel(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:529:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:540:17"
 
 [TryAgian]
 Class="Function"
 Prototype="int TryAgian(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:547:17"
+SourceLocation="d:\Simon-Gmae-in-C--main\Simon Game v1.0.c:561:17"
 

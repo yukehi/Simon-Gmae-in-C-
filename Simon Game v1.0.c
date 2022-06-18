@@ -100,11 +100,12 @@ int timeOut( double seconds )
 
 int setBtnToPlay(void)
 {
-	
+	userSeqInput=(int*)malloc(N* sizeof(int));
 	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_GREEN, ATTR_CTRL_MODE, VAL_VALIDATE);
 	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_BLUE,ATTR_CTRL_MODE, VAL_VALIDATE);
 	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_YELLOW, ATTR_CTRL_MODE,VAL_VALIDATE);
 	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_RED, ATTR_CTRL_MODE,VAL_VALIDATE);
+	
 	return 1;
 }
 
@@ -219,9 +220,11 @@ int CVICALLBACK GO_TO_ABOUT (int panel, int control, int event,
 int CVICALLBACK GO_TO_GAME (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {
+	
 	switch (event)
 	{
 		case EVENT_COMMIT:
+			printf("\n \n ans of N  %d",N);
 			   DisplayPanel (gamePanel);
 			   HidePanel (mainPanel); 
 			break;
@@ -233,7 +236,7 @@ int CVICALLBACK GO_TO_GAME (int panel, int control, int event,
 
 int roundSeqPlay(void)
    {
-	   userSeqInput=(int*)malloc(N* sizeof(int));
+	   
 	   		  for( i = 0 ; i < levelCount*gameMode ; i++ )
 			  {
 				  if(numSeqRandom[i]==0)
@@ -313,8 +316,9 @@ int roundSeqPlay(void)
 				 
 			  }
 			  
-	setBtnToPlay();
+	
 	gameLenth(levelCount,gameMode);
+	setBtnToPlay();
 	return 0;		  
    }
 
@@ -329,10 +333,12 @@ int roundSeqPlay(void)
 /// HIFN The main entry-point function.
 int main (int argc, char *argv[])
 {
+	
 	/// MOST EXCUTE TO CRATE FIRST MEMORY SLOT
 	seqNumberGanretoer(gameLantheDefulet);
+	userSeqInput=(int*)malloc(levelCount* sizeof(int));
 	/* initialize and load resources */
-	
+	printf("\n \n ans main%d",N);
 	if (InitCVIRTE (0, argv, 0) == 0)
 		return -1;
 	if ((mainPanel = LoadPanel (0, "Simon Gmae.uir", PANEL_MAIN)) < 0)
@@ -374,8 +380,10 @@ int CVICALLBACK SetGameMode (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
+			
 			   GetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, &val);
 			   ///printf("%d\n",gameMode);
+			   printf("\n \n ans of N  %d",N);
 			   if(val==1)
 			   {  
 					gameMode=1; 
@@ -404,8 +412,10 @@ int CVICALLBACK SetGameMode (int panel, int control, int event,
 int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {
+	
 	switch (event)
 	{
+			
 		case EVENT_COMMIT:
 			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
 			SetCtrlAttribute (gamePanel, PANEL_GAME_GAME_MODE, ATTR_DIMMED, 1);
@@ -413,7 +423,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 			SetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, 0);
 			setBtnToLight();
 			roundSeqPlay();
-	
+	printf("\n \n ans of N  %d",N);
 			break;
 		case EVENT_LEFT_CLICK:
 
@@ -430,6 +440,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {	
+	
 	switch (event)
 	{
 			case EVENT_COMMIT:
@@ -529,9 +540,12 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 int CVICALLBACK nextLevel (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {
+	
 	switch (event)
 	{
+			
 		case EVENT_COMMIT:
+			free(userSeqInput);
 			levelCount++;
 			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);
 			seqCount=0;
