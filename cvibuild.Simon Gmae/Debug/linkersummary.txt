@@ -1,7 +1,7 @@
+bass.lib
 Simon Game v1.0.obj
 cvi.lib
 cvistart.lib
-bass.lib
 kernel32.lib
 user32.lib
 EXE Symbol Module

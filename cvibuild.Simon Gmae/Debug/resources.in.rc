@@ -2,12 +2,12 @@
 #include "C:\Program Files (x86)\National Instruments\Shared\MSDTRedistributables\SDKHeaderFiles\8.1\winver.h"
 
 2 ICON "c:\\program files (x86)\\national instruments\\cvi2020\\bin\\default.ico"
-1 24 "d:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\manifest.xml"
+1 24 "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\manifest.xml"
 
 
 STRINGTABLE DISCARDABLE
 BEGIN
-  65535  "Simon Gmae"
+  65535  "SIMON GAME"
 END
 
 VS_VERSION_INFO VERSIONINFO
@@ -24,12 +24,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "Simon Gmae (Debug x86)\0"
+            VALUE "FileDescription", "SIMON GAME (Debug x86)\0"
             VALUE "FileVersion", "1.0\0"
             VALUE "InternalName", "Simon Gmae\0"
             VALUE "LegalCopyright", "Copyright (c)  2022\0"
             VALUE "OriginalFilename", "Simon Gmae.exe\0"
-            VALUE "ProductName", " Simon Gmae\0"
+            VALUE "ProductName", " SIMON GAME\0"
             VALUE "ProductVersion", "1.0\0"
         END
     END

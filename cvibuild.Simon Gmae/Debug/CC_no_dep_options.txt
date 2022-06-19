@@ -1,1 +1,1 @@
--force-include-file "bass.h";"d:\Simon-Gmae-in-C--main\bass.h" -force-include-file "Simon Game v1.0.c";"d:\Simon-Gmae-in-C--main\Simon Game v1.0.c" 
+-force-include-file "bass.h";"x:\Simon-Gmae-in-C--main\bass.h" -force-include-file "Simon Game v1.0.c";"x:\Simon-Gmae-in-C--main\Simon Game v1.0.c" 
