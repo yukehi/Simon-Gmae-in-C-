@@ -1,7 +1,7 @@
 [Project Header]
 Version = 2000
 Encoding = "ANSI"
-Pathname = "/x/Simon-Gmae-in-C--main/Simon Gmae.prj"
+Pathname = "/x/Simon Game V.1.1/Simon Gmae.prj"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2020"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2020"
@@ -10,7 +10,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 9
+Number of Files = 4
 Target Type = "Executable"
 Flags = 16
 Copied From Locked InstrDrv Directory = False
@@ -19,19 +19,17 @@ Locked InstrDrv Name = ""
 Don't Display Deploy InstrDrv Dialog = False
 
 [Folders]
+Include Files Folder Not Added Yet = True
 Instrument Files Folder Not Added Yet = True
 Library Files Folder Not Added Yet = True
 Folder 0 = "User Interface Files"
 FolderEx 0 = "User Interface Files"
 Folder 1 = "Source Files"
 FolderEx 1 = "Source Files"
-Folder 2 = "Source Files/sounds"
-FolderEx 2 = "sounds"
-FolderEx 2 Parent = 1
-Folder 3 = "Lib"
-FolderEx 3 = "Lib"
-Folder 4 = "Include Files"
-FolderEx 4 = "Include Files"
+Folder 2 = "Lib"
+FolderEx 2 = "Lib"
+Folder 3 = "include"
+FolderEx 3 = "include"
 
 [File 0001]
 File Type = "User Interface Resource"
@@ -39,108 +37,48 @@ Res Id = 1
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Simon Gmae.uir"
-Path = "/x/Simon-Gmae-in-C--main/Simon Gmae.uir"
+Path = "/x/Simon Game V.1.1/Simon Gmae.uir"
 Exclude = False
 Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 0
 
 [File 0002]
-File Type = "Unknown"
+File Type = "CSource"
 Res Id = 2
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "Audio/blue.mp3"
-Path = "/x/Simon-Gmae-in-C--main/Audio/blue.mp3"
-Exclude = False
-Project Flags = 0
-Folder = "Source Files/sounds"
-Folder Id = 2
-
-[File 0003]
-File Type = "Unknown"
-Res Id = 3
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Audio/green.mp3"
-Path = "/x/Simon-Gmae-in-C--main/Audio/green.mp3"
-Exclude = False
-Project Flags = 0
-Folder = "Source Files/sounds"
-Folder Id = 2
-
-[File 0004]
-File Type = "Unknown"
-Res Id = 4
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Audio/red.mp3"
-Path = "/x/Simon-Gmae-in-C--main/Audio/red.mp3"
-Exclude = False
-Project Flags = 0
-Folder = "Source Files/sounds"
-Folder Id = 2
-
-[File 0005]
-File Type = "Unknown"
-Res Id = 5
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Audio/wrong.mp3"
-Path = "/x/Simon-Gmae-in-C--main/Audio/wrong.mp3"
-Exclude = False
-Project Flags = 0
-Folder = "Source Files/sounds"
-Folder Id = 2
-
-[File 0006]
-File Type = "Unknown"
-Res Id = 6
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "Audio/yellow.mp3"
-Path = "/x/Simon-Gmae-in-C--main/Audio/yellow.mp3"
-Exclude = False
-Project Flags = 0
-Folder = "Source Files/sounds"
-Folder Id = 2
-
-[File 0007]
-File Type = "CSource"
-Res Id = 7
-Path Is Rel = True
-Path Rel To = "Project"
 Path Rel Path = "Simon Game v1.0.c"
-Path = "/x/Simon-Gmae-in-C--main/Simon Game v1.0.c"
+Path = "/x/Simon Game V.1.1/Simon Game v1.0.c"
 Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 Folder Id = 1
 
-[File 0008]
+[File 0003]
 File Type = "Library"
-Res Id = 8
+Res Id = 3
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "bass.lib"
-Path = "/x/Simon-Gmae-in-C--main/bass.lib"
-Exclude = False
-Project Flags = 1048576
-Folder = "Lib"
-Folder Id = 3
-
-[File 0009]
-File Type = "Include"
-Res Id = 9
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "bass.h"
-Path = "/x/Simon-Gmae-in-C--main/bass.h"
+Path Rel Path = "WinMM.Lib"
+Path = "/x/Simon Game V.1.1/WinMM.Lib"
 Exclude = False
 Project Flags = 0
-Folder = "Include Files"
-Folder Id = 4
+Folder = "Lib"
+Folder Id = 2
+
+[File 0004]
+File Type = "Include"
+Res Id = 4
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "playsoundapi.h"
+Path = "/x/Simon Game V.1.1/playsoundapi.h"
+Exclude = False
+Project Flags = 0
+Folder = "include"
+Folder Id = 3
 
 [Custom Build Configs]
 Num Custom Build Configs = 0
@@ -183,8 +121,10 @@ Sign Certificate = ""
 Sign Timestamp URL = ""
 Sign URL = ""
 Manifest Embed = False
-Icon File Is Rel = False
-Icon File = ""
+Icon File Is Rel = True
+Icon File Rel To = "Project"
+Icon File Rel Path = "simon_game_for_about_wLh_icon.ico"
+Icon File = "/x/Simon Game V.1.1/simon_game_for_about_wLh_icon.ico"
 Application Title = "SIMON GAME"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
@@ -204,26 +144,18 @@ DLL Exports = "Include File Symbols"
 Register ActiveX Server = False
 Numeric File Version = "1,0,0,0"
 Numeric Prod Version = "1,0,0,0"
-Comments = ""
-Comments Ex = ""
+Comments = "Voice Fx By Aleksey Zgeria "
+Comments Ex = "Voice Fx By Aleksey Zgeria "
 Company Name = ""
 Company Name Ex = "%company"
-File Description = "SIMON GAME (Debug x86)"
-File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "1.0"
 File Version Ex = "%f1.%f2"
-Internal Name = "Simon Gmae"
-Internal Name Ex = "%basename"
 Legal Copyright = "Copyright (c)  2022"
 Legal Copyright Ex = "Copyright (c) %company %Y"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
-Original Filename = "Simon Gmae.exe"
-Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
-Product Name = " SIMON GAME"
-Product Name Ex = "%company %application"
 Product Version = "1.0"
 Product Version Ex = "%p1.%p2"
 Special Build = ""
@@ -465,29 +397,29 @@ Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
 Include Path 1 Is Rel = True
 Include Path 1 Rel To = "Project"
 Include Path 1 Rel Path = "Audio"
-Include Path 1 = "/x/Simon-Gmae-in-C--main/Audio"
+Include Path 1 = "/x/Simon Game V.1.1/Audio"
 Include Path 2 Is Rel = True
 Include Path 2 Rel To = "Project"
 Include Path 2 Rel Path = "imports"
-Include Path 2 = "/x/Simon-Gmae-in-C--main/imports"
+Include Path 2 = "/x/Simon Game V.1.1/imports"
 
 [Create Executable]
 Executable File_Debug Is Rel = True
 Executable File_Debug Rel To = "Project"
 Executable File_Debug Rel Path = "Simon Gmae.exe"
-Executable File_Debug = "/x/Simon-Gmae-in-C--main/Simon Gmae.exe"
+Executable File_Debug = "/x/Simon Game V.1.1/Simon Gmae.exe"
 Executable File_Release Is Rel = True
 Executable File_Release Rel To = "Project"
 Executable File_Release Rel Path = "Simon Gmae.exe"
-Executable File_Release = "/x/Simon-Gmae-in-C--main/Simon Gmae.exe"
+Executable File_Release = "/x/Simon Game V.1.1/Simon Gmae.exe"
 Executable File_Debug64 Is Rel = True
 Executable File_Debug64 Rel To = "Project"
 Executable File_Debug64 Rel Path = "Simon Gmae.exe"
-Executable File_Debug64 = "/x/Simon-Gmae-in-C--main/Simon Gmae.exe"
+Executable File_Debug64 = "/x/Simon Game V.1.1/Simon Gmae.exe"
 Executable File_Release64 Is Rel = True
 Executable File_Release64 Rel To = "Project"
 Executable File_Release64 Rel Path = "Simon Gmae.exe"
-Executable File_Release64 = "/x/Simon-Gmae-in-C--main/Simon Gmae.exe"
+Executable File_Release64 = "/x/Simon Game V.1.1/Simon Gmae.exe"
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""

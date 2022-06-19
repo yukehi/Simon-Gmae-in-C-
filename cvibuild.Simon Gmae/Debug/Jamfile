@@ -1,6 +1,6 @@
 CCFLAGS = -g ;
-HDRS = 	"x:\\Simon-Gmae-in-C--main\\Audio"
-	"x:\\Simon-Gmae-in-C--main\\imports"
+HDRS = 	"x:\\Simon Game V.1.1\\Audio"
+	"x:\\Simon Game V.1.1\\imports"
 	"c:\\program files (x86)\\national instruments\\cvi2020\\toolslib\\activex\\word"
 	"c:\\program files (x86)\\national instruments\\cvi2020\\toolslib\\activex\\excel"
 	"c:\\program files (x86)\\national instruments\\cvi2020\\toolslib\\custctrl"
@@ -30,16 +30,16 @@ HDRS = 	"x:\\Simon-Gmae-in-C--main\\Audio"
 	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
 	;
 include Jamfile_instr ;
-LOCATE on "bass.h" = "x:\\Simon-Gmae-in-C--main" ;
-LOCATE on "Simon Game v1.0.c" = "x:\\Simon-Gmae-in-C--main" ;
-Object "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" : "x:\\Simon-Gmae-in-C--main\\Simon Game v1.0.c" ;
-FILENUM on "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = 1 ;
-DEFPROTS on "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj.cvidefprots" ;
-OUTFILE on "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj.out" ;
-PrjObjects += "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" ;
-Object "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\resources.res" : "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\resources.in.rc" ;
-Depends "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\resources.res" : "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\manifest.xml" ;
-MainFromObjects "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : $(PrjObjects) $(InstrObjects) ;
-Depends "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\link_options.txt" ;
-Depends "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\resources.res" ;
-Depends all : "x:\\Simon-Gmae-in-C--main\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" ;
+LOCATE on "playsoundapi.h" = "x:\\Simon Game V.1.1" ;
+LOCATE on "Simon Game v1.0.c" = "x:\\Simon Game V.1.1" ;
+Object "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" : "x:\\Simon Game V.1.1\\Simon Game v1.0.c" ;
+FILENUM on "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = 1 ;
+DEFPROTS on "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj.cvidefprots" ;
+OUTFILE on "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" = "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj.out" ;
+PrjObjects += "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Game v1.0.obj" ;
+Object "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\resources.res" : "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\resources.in.rc" ;
+Depends "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\resources.res" : "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\manifest.xml" ;
+MainFromObjects "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\link_options.txt" ;
+Depends "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" : "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\resources.res" ;
+Depends all : "x:\\Simon Game V.1.1\\cvibuild.Simon Gmae\\Debug\\Simon Gmae.exe" ;

@@ -18,50 +18,23 @@
 #include <stdio.h>
 #include "Simon Gmae.h"
 #include "toolbox.h"
-#include "bass.h" 
+#include <playsoundapi.h>
+
 
 
 //==============================================================================
-// variables For Functions
+//  For Functions
 
 int printf(const char *format, ...);
 int rand(void);
 
-///// DO NOT UNDERSTED WHY SOUND DOES NOT EXCUTETS !!!!! 
-HSTREAM BTN_BLUE_SND;   
-HSTREAM BTN_RED_SND;   
-HSTREAM BTN_GREEN_SND;
-HSTREAM BTN_YELLOW_SND;
-HSTREAM WRONG_SND;
-
-void InitMP3s(void)
+struct newScoreBored
 {
-	BASS_Init( -1,44100, 0,0,NULL); 
+   int a[4];
+};
 
-	BTN_BLUE_SND = BASS_StreamCreateFile(FALSE,"blue.mp3",0,0,0);
-    BTN_RED_SND = BASS_StreamCreateFile(FALSE,"red.mp3",0,0,0);
-    BTN_GREEN_SND = BASS_StreamCreateFile(FALSE,"green.mp3",0,0,0);
-    BTN_YELLOW_SND = BASS_StreamCreateFile(FALSE,"yellow.mp3",0,0,0);
-    WRONG_SND = BASS_StreamCreateFile(FALSE,"wrong.mp3",0,0,0);
-  
-}
-void ReleaseMP3s(void)
-{
-	 printf("%d SOUND IS ON",BASS_StreamFree(WRONG_SND));
-	 BASS_StreamFree(BTN_BLUE_SND);
-	 BASS_StreamFree(BTN_RED_SND);
-	 BASS_StreamFree(BTN_GREEN_SND); 
-	 BASS_StreamFree(BTN_YELLOW_SND);
-	 BASS_StreamFree(WRONG_SND);
-}
+struct newScoreBored bored;
 
-//void Chaneels (void){
-//	RED_CHANNEL = BASS_SampleGetChannel(BTN_RED_SND, 0);
-//	BULE_CHANNEL = BASS_SampleGetChannel(BTN_BLUE_SND, 0);
-//	GREEN_CHANNEL = BASS_SampleGetChannel(BTN_GREEN_SND, 0);
-//	YELLOW_CHANNEL = BASS_SampleGetChannel(BTN_YELLOW_SND, 0);
-//	WRONG_CHANNEL = BASS_SampleGetChannel(WRONG_SND, 0);
-//}
 
 
 
@@ -72,9 +45,10 @@ int numSeqRandom[100];
 int gameCount=-1;
 int seqCount=0;
 int userInput=0;
-int N,i; //mbintion of level and mode for ans of steps in game
+int N,i;//mbintion of level and mode for ans of steps in game
+double p;
 int* userSeqInput;/// dynmic arry
-
+int gameTime = 25;
 //==============================================================================
 // Static global variables
 
@@ -82,7 +56,9 @@ static int mainPanel = 0;
 static int gamePanel = 0;
 static int aboutPanel = 0;
 static int scorePanel = 0;
-static int gameLantheDefulet = 100;
+static int inputPanel = 0;
+static int modePanel = 0;
+
 
 
 
@@ -138,6 +114,36 @@ int setBtnToLight(void)
 	return 1;
 }
 
+int playBtn (int btn){
+	switch (btn)
+	{
+		case 0:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\red.wav"), NULL,SND_FILENAME | SND_ASYNC);
+			break;
+		case 1:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\blue.wav"), NULL,SND_FILENAME | SND_ASYNC);
+			break;
+		case 2:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\green.wav"), NULL,SND_FILENAME | SND_ASYNC);
+			break;
+		case 3:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\yellow.wav"),NULL,SND_FILENAME | SND_ASYNC);
+			break;	
+		case 4:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\wrong.wav"), NULL,SND_FILENAME | SND_ASYNC);
+			break;	
+		case 5:
+			PlaySound(TEXT("X:\\Simon Game V.1.1\\Audio\\next.wav"), NULL,SND_FILENAME | SND_ASYNC);
+			break;		
+	}
+	return 0;
+}
+
+int checkScoreBorad (){
+	
+
+	return 0;
+}
 
 
 
@@ -149,22 +155,29 @@ int checkSeq (int userSeq[], int comSeq[], int Size) {
     
 	for(i=0;i<Size;i++)
 	{
-	
-		printf("\n user sequnse = %d",userSeq[i]);
-		printf("\n com sequnse  = %d",comSeq[i]);
 		if(userSeq[i] != comSeq[i])
 		{
 			/// ACTIVETING THE AGIEN BTN
+			playBtn(4);
 			gameCount=-1;
 			levelCount=1;
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_AGIAN, ATTR_DIMMED, 0);
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 1);
+			setBtnToLight();
+			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_VISIBLE, 1);
 			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr,levelCount);
-			//printf("\n SHIT HAPPEN!!!!!! userinput = %d",userInput);
+			if( p > bored.a[0] && p < bored.a[3]){
+				DisplayPanel (inputPanel);
+				HidePanel (gamePanel);
+			}else{
+				SetCtrlAttribute (inputPanel, PANEL_INPU_BTN_AGIAN, ATTR_VISIBLE , 0);
+			}
+			
+			//check score borad 
 			break;	
 			}
 	/// ACTIVETING THE NEXT LEVEL BTN
 		else{
+		playBtn(5);
+		setBtnToLight();
 		gameCount=-1;
 		SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 0);
 		//printf("\n YOU DID RIGHT MY SON  %d",userInput);	
@@ -187,7 +200,6 @@ int seqNumberGanretoer (int gameLantch){
 	
 	 for( i = 0 ; i < gameLantch ; i++ ) 
 	 {
-      		///printf("%d\n", numSeqRandom[i]);
 	  		numSeqRandom[i] =rand() % 4;
 	 }
 
@@ -203,8 +215,7 @@ int roundSeqPlay(void)
 					   if (timeOut(0.5)==1)
 					  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
-					  BASS_ChannelPlay(BTN_RED_SND,TRUE);
-					  
+					  playBtn(0);
 					  }
 					  if (timeOut(0.5)==1)
 					  {
@@ -216,7 +227,7 @@ int roundSeqPlay(void)
 					   if (timeOut(0.5)==1)
 					  {
 					  SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
-					  BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
+					  playBtn(3);
 					  }
 					  if (timeOut(0.5)==1)
 					  {
@@ -228,7 +239,7 @@ int roundSeqPlay(void)
 					   if (timeOut(0.5)==1)
 					  {
 					   SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
-					   BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
+					   playBtn(2);
 					  }
 					  if (timeOut(0.5)==1)
 					  {
@@ -240,7 +251,7 @@ int roundSeqPlay(void)
 					  if (timeOut(0.5)==1)
 					  {
 					 SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
-					 BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
+					 playBtn(1);
 					  }
 					  if (timeOut(0.5)==1)
 					  {
@@ -248,22 +259,117 @@ int roundSeqPlay(void)
 					  }
 				  }
 			  }
-	gameLenth(levelCount,gameMode);
 	setBtnToPlay();
 	return 0;		  
    }
 
+int instalizeGame(){
+	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
+	//SetCtrlAttribute (gamePanel, PANEL_SET_GAME_MODE, ATTR_DIMMED, 1);
+	SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
+	//SetCtrlIndex (gamePanel, PANEL_SET_GAME_MODE, 0);
+	setBtnToLight();
+	roundSeqPlay();
+	
 
+	return 0;
+}
 
+int setSameGame(){
+	free(userSeqInput);
+	userSeqInput=(int*)calloc(N,N * sizeof(int));
+	gameCount=-1;
+	seqNumberGanretoer(N);
+	seqCount=0;
+	setBtnToLight();
+	roundSeqPlay();
+
+	return 0;
+}
+
+int setNextLevel(){
+	//LoopThrowArry(userSeqInput);
+	//LoopThrowArryCOM(numSeqRandom);
+	SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 1);
+	free(userSeqInput);
+	levelCount++;
+	userSeqInput=(int*)calloc(N,N * sizeof(int));
+	SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);
+	seqCount=0;
+	setBtnToLight();
+	roundSeqPlay();
+	return 0;
+}
+
+int BtnOnInSet(){
+	SetCtrlAttribute (gamePanel, PANEL_INPU_BTN_AGIAN, ATTR_DIMMED, 1);
+	SetCtrlAttribute (gamePanel, PANEL_INPU_BTN_SET_GAME, ATTR_DIMMED, 1);
+	return 0;
+}
+int pushScoreToBorad(){
+	///CANT GET THE CHERCTER VALUE NEEDED TO BE CHEKED 
+	int val;
+	GetCtrlAttribute (gamePanel, PANEL_INPU_NAME, ATTR_DFLT_VALUE, &val);
+	int len = sizeof(val);
+	printf("%d", len);
+	if( len == NULL){
+		MessageBox( 0, TEXT( "You Most Put A Name between 1-10 "), TEXT( "ERROER" ), MB_OK );
+		return 1;
+	}if(len > 1 && len < 10){
+		if( p > bored.a[0] && p < bored.a[1]){
+			SetCtrlVal (scorePanel, PANELSCORE_SCORE_FIRST,N);
+			SetCtrlVal (scorePanel, PANELSCORE_H1_FIRST_NAME,val);
+			BtnOnInSet();
+		}if( p > bored.a[1] && p > bored.a[2]){
+			SetCtrlVal (scorePanel, PANELSCORE_SCORE_SECAND,N);
+			SetCtrlVal (scorePanel, PANELSCORE_H1_SECAND_NAME, val);
+			BtnOnInSet();
+		}if( p > bored.a[2] && p > bored.a[3]){
+			SetCtrlVal (scorePanel, PANELSCORE_SCORE_THIRD,N);
+			SetCtrlVal (scorePanel, PANELSCORE_H1_THIRD_NAME, val);
+			BtnOnInSet();
+		}else{
+			SetCtrlVal (scorePanel, PANELSCORE_SCORE_FOURTH,N);
+			SetCtrlVal (scorePanel, PANELSCORE_H1_FOURTH_NAME ,val);
+			BtnOnInSet();
+	}	
+	
+	}if(len < 10){
+		MessageBox( 0, TEXT( "You Most Put A Name between 1-10 "), TEXT( "ERROER" ), MB_OK );
+		return 1;
+	}
+	
+	return 0;
+}
+
+int setScoreRuls(){
+	for (i=0; i<4; i++)
+	{
+		float percentage;
+		percentage = (100 * 100.0) / N * i;
+		//printf("\n  bored Percentage = %.2f%%", percentage);
+		bored.a[i] = percentage;
+	}
+	
+	
+	return  0;
+};
+
+int setGameTime(){
+		seqNumberGanretoer(gameTime);
+		userSeqInput=(int*)calloc(gameTime ,gameTime * sizeof(int) );
+		gameLenth(levelCount,gameMode);
+		p = (N * 100.0) ;
+		setScoreRuls();
+		return 0;
+}
 
 
 ///=========MAIN FUNCTION =======================================================
 /// HIFN The main entry-point function.
 int main (int argc, char *argv[])
 {
-			/// MOST EXCUTE TO CRATE FIRST MEMORY SLOT
-		seqNumberGanretoer(gameLantheDefulet);
-		userSeqInput=(int*)calloc(gameLantheDefulet ,gameLantheDefulet * sizeof(int) ); //
+		
 		/* initialize and load resources */
 		if (InitCVIRTE (0, argv, 0) == 0)
 			return -1;
@@ -275,18 +381,25 @@ int main (int argc, char *argv[])
 			return -1;
 		if ((scorePanel = LoadPanel (0, "Simon Gmae.uir", PANELSCORE)) < 0)
 			return -1;
+		if ((inputPanel = LoadPanel (0, "Simon Gmae.uir", PANEL_INPU)) < 0)
+			return -1;
+		if ((modePanel = LoadPanel (0, "Simon Gmae.uir", PANEL_SET)) < 0)
+			return -1;
+		
+		
 		
 		/* display the panel and run the user interface */
-		InitMP3s();
-		ReleaseMP3s();
 		DisplayPanel (mainPanel);
 		RunUserInterface ();
 		DiscardPanel (gamePanel);
+		DiscardPanel (modePanel);
 		DiscardPanel (aboutPanel);
+		DiscardPanel (inputPanel);
 		DiscardPanel (scorePanel);
 		
+		
 
-	
+		
 
 }
 
@@ -314,27 +427,23 @@ int CVICALLBACK SetGameMode (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			
-			   GetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, &val);
+			   GetCtrlIndex (modePanel, PANEL_SET_GAME_MODE, &val);
 			   ///printf("%d\n",gameMode);
-			   
-			   if(val==1)
-			   {  
+			   switch (val)
+			   {
+			   	case 2:
+			   		gameMode=2;
+			   		break;
+			   	case 3:
+					gameMode=3;
+			   		break;
+				case 4:
+					gameMode=4; 
+			   		break;
+			   	default:
 					gameMode=1; 
-					
-			   }
-			   if(val==2)
-			   {
-					gameMode=2;
-			   }
-			   if(val==3)
-			   {
-					gameMode=3;   
-			   }
-			   else
-			   {
-			   		gameMode=4; 
-			   }
-			  
+			   		break;
+			  	}
 			   
 			break;
 	}
@@ -350,13 +459,7 @@ int CVICALLBACK FIRE_GAME (int panel, int control, int event,
 	{
 			
 		case EVENT_COMMIT:
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_START_GAME, ATTR_DIMMED, 1);
-			SetCtrlAttribute (gamePanel, PANEL_GAME_GAME_MODE, ATTR_DIMMED, 1);
-			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);/// does not switch the number
-			SetCtrlIndex (gamePanel, PANEL_GAME_GAME_MODE, 0);
-			setBtnToLight();
-			roundSeqPlay();
-	
+			instalizeGame();
 			break;
 		case EVENT_LEFT_CLICK:
 
@@ -386,7 +489,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							if (timeOut(0.5)==1)
 							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_RED, 1);
-							BASS_ChannelPlay(BTN_RED_SND,TRUE);
+							playBtn(0);
 
 							}
 							if (timeOut(0.5)==1)
@@ -403,7 +506,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							if (timeOut(0.5)==1)
 							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_YELLOW, 1);
-							BASS_ChannelPlay(BTN_YELLOW_SND,TRUE);
+							playBtn(3);
 							}
 							if (timeOut(0.5)==1)
 							{
@@ -419,7 +522,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							if (timeOut(0.5)==1)
 							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, 1);
-							BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
+							playBtn(2);
 
 							}
 							if (timeOut(0.5)==1)
@@ -437,8 +540,7 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 							if (timeOut(0.5)==1)
 							{
 							SetCtrlVal (gamePanel, PANEL_GAME_LED_BLUE, 1);
-							BASS_ChannelPlay(BTN_BLUE_SND,TRUE);
-
+							playBtn(1);
 							}
 							if (timeOut(0.5)==1)
 							{
@@ -457,23 +559,15 @@ int CVICALLBACK BTN_CHANGE (int panel, int control, int event,
 	return 0;
 }
 
-
+///PREOBLEM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 int CVICALLBACK nextLevel (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			LoopThrowArry(userSeqInput);
-			LoopThrowArryCOM(numSeqRandom);
-			free(userSeqInput);
-			levelCount++;
-			userSeqInput=(int*)calloc(N,N * sizeof(int));
-			SetCtrlVal (gamePanel, PANEL_GAME_levelCountr, levelCount);
-			seqCount=0;
-			setBtnToLight();
-			roundSeqPlay();
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_NEXT_LEVEL, ATTR_DIMMED, 1);
+			setNextLevel();
+			//problem with memoery 
 			break;
 	}
 	
@@ -486,17 +580,8 @@ int CVICALLBACK TryAgian (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			free(userSeqInput);
-			userSeqInput=(int*)calloc(N,N * sizeof(int));
-			gameCount=-1;
-			seqNumberGanretoer(N);
-			seqCount=0;
-			setBtnToLight();
-			roundSeqPlay();
-			SetCtrlAttribute (gamePanel, PANEL_GAME_BTN_AGIAN, ATTR_DIMMED, 1);
+			setSameGame();
 			break;
-			
-			///does not change back the level on plaen 
 
 	}
 	return 0;
@@ -524,6 +609,11 @@ int CVICALLBACK GO_BACK_MAIN (int panel, int control, int event,
 			{
 				DisplayPanel (mainPanel);
 			  	HidePanel (gamePanel); 
+			}
+			if(panel == modePanel)
+			{
+				DisplayPanel (mainPanel);
+			  	HidePanel (modePanel); 
 			}
 			else{
 				DisplayPanel (mainPanel);
@@ -556,8 +646,9 @@ int CVICALLBACK GO_TO_GAME (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			   DisplayPanel (gamePanel);
-			   HidePanel (mainPanel); 
+			setGameTime();
+			DisplayPanel (gamePanel);
+			HidePanel (modePanel); 
 			break;
 	}
 	return 0;
@@ -580,19 +671,82 @@ int CVICALLBACK GO_SCORE (int panel, int control, int event,
 
 
 
-
-
-int CVICALLBACK TIMER (int panel, int control, int event,
-					   void *callbackData, int eventData1, int eventData2)
+int CVICALLBACK GO_BACK_SET_PANEL (int panel, int control, int event,
+								   void *callbackData, int eventData1, int eventData2)
 {
 	switch (event)
 	{
-		case EVENT_TIMER_TICK:
-			/*int x;
-			GetCtrlVal (gamePanel, PANEL_GAME_LED_GREEN, &x);
-			if(x == 1){
-			BASS_ChannelPlay(BTN_GREEN_SND,TRUE);
-			}*/
+		case EVENT_COMMIT:
+			instalizeGame();
+			DisplayPanel (modePanel);
+			HidePanel (gamePanel); 
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK SUBMIT_SCORE (int panel, int control, int event,
+							void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			pushScoreToBorad();
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK GO_PANEL_SET (int panel, int control, int event,
+							  void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			DisplayPanel (modePanel);
+			HidePanel (inputPanel);
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK SetGameModeTime (int panel, int control, int event,
+								 void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			int index;
+			GetCtrlIndex (modePanel, PANEL_SET_GAME_MODE_TIME, &index);
+			   switch (index)
+				  
+			   {
+			   	case 1:
+					gameTime = 35;
+			   		break;
+			   	case 2:
+					gameTime = 50;
+			   		break;
+				case 3:
+					gameTime = 100;
+			   		break;
+			   	case 0:
+					gameTime = 25; 
+			   		break;
+			  	}
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK GO_TO_SET (int panel, int control, int event,
+						   void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			DisplayPanel (modePanel);
+			HidePanel (mainPanel); 
 			break;
 	}
 	return 0;

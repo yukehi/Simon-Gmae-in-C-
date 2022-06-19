@@ -1,9 +1,9 @@
-bass.lib
 Simon Game v1.0.obj
 cvi.lib
 cvistart.lib
-kernel32.lib
 user32.lib
+winmm.lib
+kernel32.lib
 EXE Symbol Module
 Exports Module
 Resource Module
